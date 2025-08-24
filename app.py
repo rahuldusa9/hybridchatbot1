@@ -4,15 +4,10 @@ import os
 from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
 
-# --------------------
-# Configuration
-# --------------------
-# Load environment variables from the .env file.
-# This must be called before accessing any environment variables.
+
 load_dotenv()
 
-# Get the API key from the environment.
-# Note: The variable name in your .env file MUST match this.
+
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # API URLs
