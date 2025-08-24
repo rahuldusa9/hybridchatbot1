@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Nexus Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-[var(--bg-color)] text-[var(--text-color)] flex flex-col items-center justify-center min-h-screen p-4">
+    <div class="container w-full max-w-2xl bg-[var(--container-bg)] rounded-2xl flex flex-col h-[85vh] overflow-hidden">
+        <!-- Header -->
+        <header class="header flex items-center justify-between p-4 bg-[var(--container-bg)] rounded-t-2xl">
+            <h1 class="text-xl font-bold text-[var(--accent-color)]">QUANTUM NEXUS</h1>
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2">
+                    <input type="radio" id="ollama" name="bot-choice" value="ollama" checked>
+                    <label for="ollama" class="text-sm font-medium">LOCAL</label>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <input type="radio" id="gemini" name="bot-choice" value="gemini">
+                    <label for="gemini" class="text-sm font-medium">GEMINI</label>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Display -->
+        <div id="chat-container" class="flex-1 p-4 overflow-y-auto chat-container space-y-4 text-xs">
+            <!-- Messages will be injected here -->
+        </div>
+
+        <!-- Input Area -->
+        <footer class="footer p-4 bg-[var(--container-bg)] rounded-b-2xl flex items-center">
+            <input type="text" id="user-input" placeholder="Initiate query..." class="input-field flex-1 px-4 py-3 rounded-full text-[var(--text-color)] focus:outline-none">
+            <button id="send-button" class="send-button ml-2 px-6 py-3 font-bold rounded-full">
+                SEND
+            </button>
+            <div id="loading-spinner" class="hidden ml-2">
+                <svg class="animate-spin h-8 w-8 text-[var(--accent-color)]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+--> to use the bot in hybrid mode you have to pull the ollama model and change the model name in the app.py
