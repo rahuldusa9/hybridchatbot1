@@ -18,9 +18,8 @@ OLLAMA_API_URL = "http://localhost:11434/api/generate"
 # Example: `ollama pull llama3.1`
 OLLAMA_MODEL = "llama3.1"
 
-# --------------------
 # Ollama Chatbot Function
-# --------------------
+
 def send_to_ollama(prompt):
     """
     Sends a text prompt to a local Ollama server and returns the response.
@@ -47,9 +46,9 @@ def send_to_ollama(prompt):
     except requests.exceptions.RequestException as e:
         return f"An error occurred with the Ollama request: {e}", False
 
-# --------------------
+
 # Gemini Chatbot Function (Fallback)
-# --------------------
+
 def send_to_gemini(prompt):
     """
     Sends a text prompt to the Gemini API and returns the generated response.
@@ -77,9 +76,8 @@ def send_to_gemini(prompt):
     except requests.exceptions.RequestException as e:
         return f"An error occurred with the Gemini API: {e}", False
 
-# --------------------
 # Flask App Setup
-# --------------------
+
 # Configure Flask to serve static files from the 'static' directory and
 # templates from the 'templates' directory.
 app = Flask(__name__, template_folder='templates', static_folder='static')
