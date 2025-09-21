@@ -33,7 +33,7 @@ def send_to_ollama(prompt):
     }
     try:
         # Increased timeout to 60 seconds to allow for longer local generation times.
-        response = requests.post(OLLAMA_API_URL, json=payload, timeout=60)
+        response = requests.post(OLLAMA_API_URL, json=payload, timeout=600)
         response.raise_for_status()
         
         data = response.json()
@@ -116,4 +116,5 @@ def chat():
     return jsonify({"response": response, "success": success})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
